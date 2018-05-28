@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>myMOSAICpro</title>
+
+<!-- ********************************************************************************************* -->
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <link href="fontawesome.min.css" rel="stylesheet">
+  <script src="jquery.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <!-- ********************************************************************************************* -->
+
+  <style>
+
+  html, body{
+    background:#000;
+    position: relative;
+  }
+
+      div.vignette{
+        position:relative;
+        overflow:hidden;
+      }
+
+      div.form{
+        position:absolute;
+        top:0px;
+        left:0px;
+        width:100%;
+        height:25px;
+        opacity:1;
+        z-index:10;
+        background:#000;
+        padding:none;
+        /*transition: opacity ease-in-out 0.3s;*/
+      }
+
+      .list-inline > li {
+        display: inline-block;
+        padding-right: 1px;
+        padding-left: 1px;
+        padding-bottom: 1px;
+        padding-top: 1px;
+      }
+
+      div.form.active{opacity:0;}
+      div.vignette:hover div.form{opacity: 1;}
+      div.form input{width:100%;}
+      div.vlc{position:absolute;left:0px;top:4px;width:100%;z-index:1;}
+      ul.mediaDescription{position:absolute;left:0px;bottom:0px;padding-left:15px;width:50%;height:auto;z-index:9;list-style-type: none;}
+      ul.audio{position:absolute;right:15px;top:60px;padding:15px;width:50%;height:100%;z-index:9;list-style-type: none;}
+      ul.subtitle{position:absolute;left:-10px;top:30px;padding:15px;width:20%;height:20%;z-index:9;list-style-type: none;}
+      ul#globalInterface{position:fixed;bottom:0px;right:0px;z-index:20;padding-right:5px;}
+      ul li{z-index:10; background: #000;display:block;}
+
+
+  </style>
+
+  <!-- ********************************************************************************************* -->
+
+  </head>
+
+  <!-- ********************************************************************************************* -->
+
+<body>
+    <ul id="globalInterface" class="list-inline text-right">
+      <li><button id="toggleInfoDisplay" class="btn btn-sm btn-default"><i class="fa fa-toggle-on fa-lg text-success"></i>&nbsp; <i class="fa fa-info-circle fa-2x text-success"></i></button></li>
+      <li><button id="toggleAudioDisplay" class="btn btn-sm btn-default"><i class="fa fa-toggle-on fa-lg text-success"></i>&nbsp; <i class="fa fa-volume-up fa-2x text-success"></i></button></li>
+      <li><button id="toggleSubtitleDisplay" class="btn btn-sm btn-default"><i class="fa fa-toggle-off fa-lg text-muted"></i>&nbsp;  <i class="fa fa-file-text-o fa-2x text-muted"></i></button></li>
+    </ul>
+
+<div class="container-fluid">
+   <div class="row">
+     <div id="1" class="col-xs-3 vignette">
+      <div class="form">
+        <input placeholder="udp:// ... @ ... : ..."  type="text">
+      </div>
+      <div class="vlc"></div>
+      <ul class="mediaDescription"></ul>
+      <ul class="audio"></ul>
+      <ul class="subtitle"></ul>
+     </div>
+     <div id="2" class="col-xs-3 vignette">
+      <div class="form">
+        <input  type="text" placeholder="udp:// ... @ ... : ..."/>
+      </div>
+      <div class="vlc"></div>
+      <ul class="mediaDescription"></ul>
+      <ul class="audio"></ul>
+      <ul class="subtitle"></ul>
+     </div>
+     <div id="3" class="col-xs-3 vignette">
+      <div class="form">
+        <input  type="text" placeholder="udp:// ... @ ... : ..."/>
+      </div>
+      <div class="vlc"></div>
+      <ul class="mediaDescription"></ul>
+      <ul class="audio"></ul>
+      <ul class="subtitle"></ul>
+     </div>
+     <div id="4" class="col-xs-3 vignette">
+      <div class="form">
+        <input  type="text" placeholder="udp:// ... @ ... : ..."/>
+      </div>
+      <div class="vlc"></div>
+      <ul class="mediaDescription"></ul>
+      <ul class="audio"></ul>
+      <ul class="subtitle"></ul>
+     </div>
+   </div>
+   <div class="row">
+     <div id="5" class="col-xs-3 vignette">
+      <div class="form">
+        <input  type="text" placeholder="udp:// ... @ ... : ..."/>
+      </div>
+      <div class="vlc"></div>
+      <ul class="mediaDescription"></ul>
+      <ul class="audio"></ul>
+      <ul class="subtitle"></ul>
+     </div>
+     <div id="6" class="col-xs-3 vignette">
+      <div class="form">
+        <input  type="text" placeholder="udp:// ... @ ... : ..."/>
+      </div>
+      <div class="vlc"></div>
+      <ul class="mediaDescription"></ul>
+      <ul class="audio"></ul>
+      <ul class="subtitle"></ul>
+     </div>
+     <div id="7" class="col-xs-3 vignette">
+      <div class="form">
+        <input  type="text" placeholder="udp:// ... @ ... : ..."/>
+      </div>
+      <div class="vlc"></div>
+      <ul class="mediaDescription"></ul>
+      <ul class="audio"></ul>
+      <ul class="subtitle"></ul>
+     </div>
+     <div id="8" class="col-xs-3 vignette">
+      <div class="form">
+        <input  type="text" placeholder="udp:// ... @ ... : ..."/>
+      </div>
+      <div class="vlc"></div>
+      <ul class="mediaDescription"></ul>
+      <ul class="audio"></ul>
+      <ul class="subtitle"></ul>
+     </div>
+   </div>
+   <div class="row">
+     <div id="9" class="col-xs-3 vignette">
+      <div class="form">
+        <input type="text" placeholder="udp:// ... @ ... : ..."/>
+      </div>
+      <div class="vlc"></div>
+      <ul class="mediaDescription"></ul>
+      <ul class="audio"></ul>
+      <ul class="subtitle"></ul>
+     </div>
+     <div id="10" class="col-xs-3 vignette">
+      <div class="form">
+        <input type="text" placeholder="udp:// ... @ ... : ..."/>
+      </div>
+      <div class="vlc"></div>
+      <ul class="mediaDescription"></ul>
+      <ul class="audio"></ul>
+      <ul class="subtitle"></ul>
+     </div>
+     <div id="11" class="col-xs-3 vignette">
+      <div class="form">
+        <input type="text" placeholder="udp:// ... @ ... : ..."/>
+      </div>
+      <div class="vlc"></div>
+      <ul class="mediaDescription"></ul>
+      <ul class="audio"></ul>
+      <ul class="subtitle"></ul>
+     </div>
+     <div id="12" class="col-xs-3 vignette">
+      <div class="form">
+        <input type="text" placeholder="udp:// ... @ ... : ..."/>
+      </div>
+      <div class="vlc"></div>
+      <ul class="mediaDescription"></ul>
+      <ul class="audio"></ul>
+      <ul class="subtitle"></ul>
+     </div>
+   </div>
+</div>
+
+<!-- ********************************************************************************************* -->
+
+<script>
+
+function getVLC(name) {
+  if (window.document[name]) {
+    return window.document[name];
+  }
+  if (navigator.appName.indexOf("Microsoft Internet") == -1) {
+    if (document.embeds && document.embeds[name])
+      return document.embeds[name];
+  }
+  else // if (navigator.appName.indexOf("Microsoft Internet")!=-1)
+  {
+    return document.getElementById(name);
+    //return getRawObject(name);
+  }
+}
+
+$("input").keypress(function(event){
+  if(event.keyCode == 13)
+  {
+    var url = $(this).val();
+    var id = $(this).closest(".vignette").attr("id");
+    initPlayer(id, url);
+  }
+});
+
+$("ul.audio").on("click", ".toggleMute", function(){
+  var id = $(this).closest(".vignette").attr("id");
+  var player = getVLC("player"+id);
+  player.audio.toggleMute();
+
+
+});
+
+$("ul.audio").on("click", ".audioSelect", function(){
+  intervalManager(false,1000);
+  var id = $(this).closest(".vignette").attr("id");
+  var player = getVLC("player"+id);
+  var track = $(this).data("track");
+  player.audio.track = track;
+  var description = player.audio.description(track);
+  $(this).html('<button type="button" id="option'+track+'" class="audioSelect btn btn-success" data-track="'+track+'">'+description+'</button>');
+  setTimeout(function(){
+    intervalManager(true,1000);
+  },1000);
+
+});
+
+$("ul.subtitle").on("click", ".toggleSubtitle", function(){
+  var id = $(this).closest(".vignette").attr("id");
+  var player = getVLC("player"+id);
+  if(player.subtitle.track == 0)
+  {
+    player.subtitle.track = 1;
+    $(this).html('<i class="fa fa-file-text-o fa-lg"></i>');
+  } else {
+    player.subtitle.track = 0;
+    $(this).html('<i class="fa fa-file-o fa-lg"></i>');
+  }
+});
+
+
+$("ul.subtitle").on("click", ".SelectButton", function(){
+  intervalManager(false,1000);
+  setTimeout(function(){
+    intervalManager(true,1000);
+  },5500);
+});
+
+$("ul.subtitle").on("click", ".subtitleSelect", function(){
+  var id = $(this).closest(".vignette").attr("id");
+  var player = getVLC("player"+id);
+  var track = $(this).data("track");
+  console.log(track);
+  player.subtitle.track = track;
+  intervalManager(true,1000);
+});
+
+
+function initPlayer(id, url){
+  var playerContainer = $("div.vignette#"+id).find(".vlc");
+  playerContainer.html('<embed type="application/x-vlc-plugin" name="player'+id+'" autoplay="true" mute="true" loop="true" bgcolor="#000000" toolbar="false" windowless="false" allowfullscreen="true" target="'+url+'" style="width:100%;height:100%;" />');
+  $("div.vignette#"+id).find(".form").find("input").val(url);//c'est ici qu'on rentre ce qui est affiché sur le tableau blanc
+  $("div.vignette#"+id).find("ul.mediaDescription").html("");
+  $("div.vignette#"+id).find("ul.audio").html("");
+  $("div.vignette#"+id).find("ul.subtitle").html("");
+  var player = getVLC("player"+id);
+  player.audio.toggleMute();
+
+
+}
+
+function checkAudio(id){
+  var player = getVLC("player"+id);
+  $("div.vignette#"+id).find("ul.audio").html("");
+  if (player!=undefined){
+    if(player.audio.count>0)
+    {
+      if(player.audio.mute)
+      {
+        $("div.vignette#"+id).find("ul.audio").append('<li class="pull-right"><button class="toggleMute btn btn-default btn-sm"><i class="fa fa-volume-off fa-lg text-danger"></i></button></li><br><br>');
+      } else {
+        $("div.vignette#"+id).find("ul.audio").append('<li class="pull-right"><button class="toggleMute btn btn-success btn-sm"><i class="fa fa-volume-up fa-lg"></i></button></li><br><br>');
+      }
+
+    $("div.vignette#"+id).find("ul.audio").append('<li class="pull-right"><div class="audioSelectgroup btn-group-vertical btn-group-xs" data-toggle="buttons"></div></li><br><br>')
+    for (var i=1; i<player.audio.count; i++) {
+       try{
+        var description = player.audio.description(i);
+       } catch(errorObject){}
+      $("div.vignette#"+id).find(".audioSelectgroup").append('<button type="button" id="option'+i+'" class="audioSelect btn btn-default " data-track="'+i+'">'+description+'</button>');
+
+    }
+    }}
+}
+
+function checkSubtitle(id,interval){
+  var player = getVLC("player"+id);
+  $("div.vignette#"+id).find("ul.subtitle").html("");
+  if (player!=undefined){
+    if(player.subtitle.count>0)
+    {
+      if(player.subtitle.track == 0)
+      {
+        $("div.vignette#"+id).find("ul.subtitle").append('<li class="pull-left"><button class="toggleSubtitle btn btn-default btn-xs"><i class="fa fa-file-o fa-lg"></i></button></li>');
+      } else {
+        $("div.vignette#"+id).find("ul.subtitle").append('<li class="pull-left"><button class="toggleSubtitle btn btn-success btn-xs"><i class="fa fa-file-text-o fa-lg"></i></button></li>');
+      }
+
+      $("div.vignette#"+id).find("ul.subtitle").append('<li class="pull-left"><div class="subtitleSelecttoolbar btn-group-vertical btn-group-xs" role="group"></div></li>')
+      //$("div.vignette#"+id).find(".subtitleSelecttoolbar").append('<div class="subtitleSelectgroup btn-group-vertical btn-group-xs" data-toggle="buttons"></div>')
+      $("div.vignette#"+id).find(".subtitleSelecttoolbar").append('<button type="button" class="SelectButton btn btn-xs dropdown-toggle" data-toggle="dropdown"> Select | choice </button><ul class="dropdown-menu"></ul>')
+        for (var i=1; i<player.subtitle.count; i++) {
+  	try{
+  		var description = player.subtitle.description(i);
+  	} catch(errorObject){}
+        $("div.vignette#"+id).find(".dropdown-menu").append('<button type="button" class="subtitleSelect btn btn-warning " data-track="'+i+'">'+description+'</button>');
+      }
+    }}
+
+}
+
+
+
+function getUrlParameter(sParam)
+{
+  var sPageURL = window.location.search.substring(1);
+  var sURLVariables = sPageURL.split('&');
+  for (var i = 0; i < sURLVariables.length; i++)
+  {
+    var sParameterName = sURLVariables[i].split('=');
+    if (sParameterName[0] == sParam)
+    {
+      return sParameterName[1];
+    }
+  }
+}
+
+var intervalID=null;
+function intervalManager(flag, time) {
+   if(flag)
+     intervalID = setInterval(function(){
+       for(var i=1; i<13; i++){
+         checkAudio(i);
+         checkSubtitle(i);
+       }
+     }, time);
+   else
+     clearInterval(intervalID);
+}
+
+var audioDisplay=true;
+$("ul#globalInterface").on("click", "#toggleAudioDisplay", function(){
+  if(audioDisplay){
+    audioDisplay=false;
+    $(this).html('<i class="fa fa-toggle-off fa-lg text-muted"></i>&nbsp; <i class="fa fa-volume-up fa-2x text-muted"></i>');
+    for (var id=1; id<13; id++){
+      var player = getVLC("player"+id)
+      if (player!=undefined){
+        if(player.audio.mute) {
+
+        }else{
+          player.audio.toggleMute();
+          }
+
+      }}$("ul.audio").slideUp("slow");
+  } else{
+    audioDisplay=true;
+    $(this).html('<i class="fa fa-toggle-on fa-lg text-success"></i>&nbsp; <i class="fa fa-volume-up fa-2x text-success"></i>');
+    $("ul.audio").slideDown("slow");
+  }
+});
+
+var subtitleDisplay=false;
+$("ul.subtitle").hide();
+$("ul#globalInterface").on("click", "#toggleSubtitleDisplay", function(){
+  $("ul.subtitle").slideToggle()
+  if(subtitleDisplay){
+    subtitleDisplay=false;
+    $(this).html('<i class="fa fa-toggle-off fa-lg text-muted"></i>&nbsp; <i class="fa fa-file-text-o fa-2x text-muted"></i>');
+    for (var id=1; id<13; id++){
+      var player = getVLC("player"+id)
+      if (player!=undefined){
+        player.subtitle.track = 0;}
+    }
+        
+  } else{
+    subtitleDisplay=true;
+    $(this).html('<i class="fa fa-toggle-on fa-lg text-success"></i>&nbsp; <i class="fa fa-file-text-o fa-2x text-success"></i>');
+  }
+});
+
+var infoDisplay=true;
+$("ul#globalInterface").on("click", "#toggleInfoDisplay", function(){
+  if(infoDisplay){
+    infoDisplay=false;
+    $(this).html('<i class="fa fa-toggle-off fa-lg text-muted"></i>&nbsp; <i class="fa fa-info-circle fa-2x text-muted"></i>');
+    $("ul.mediaDescription").hide(500);
+    $("div.form").hide(400);
+  } else{
+    infoDisplay=true;
+    $(this).html('<i class="fa fa-toggle-on fa-lg text-success"></i>&nbsp; <i class="fa fa-info-circle fa-2x text-success"></i>');
+     $("ul.mediaDescription").show(500);
+     $("div.form").show(400);
+      }
+});
+
+
+
+
+$(document).ready(function() {
+  resizeRow();
+
+  var url = getUrlParameter('url');
+  if(url != "undefined" && url != null){
+    initPlayer(1, url);
+    var port = url.split(/[:]+/).pop();
+    var url = url.substring(0, url.length - port.length);
+    port = parseInt(port)+1;
+    initPlayer(2, url+port);
+    port+=1;
+    initPlayer(3, url+port);
+    port+=1;
+    initPlayer(4, url+port);
+    port+=1;
+    initPlayer(5, url+port);
+    port+=1;
+    initPlayer(6, url+port);
+    port+=1;
+    initPlayer(7, url+port);
+    port+=1;
+    initPlayer(8, url+port);
+    port+=1;
+    initPlayer(9, url+port);
+    port+=1;
+    initPlayer(10, url+port);
+    port+=1;
+    initPlayer(11, url+port);
+    port+=1;
+    initPlayer(12, url+port);
+  }
+
+
+  intervalManager(true, 1500);
+
+});
+
+$( window ).resize( function(){
+  resizeRow();
+});
+
+function resizeRow(){
+  var height = $(window).height()/3;
+  $("div.vlc").height((height));
+  $("div.row").height(height);
+  $("div.col-xs-3").height(height);
+}
+
+</script>
+
+</body>
+</html>
