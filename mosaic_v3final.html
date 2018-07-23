@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
-  <title>myMOSAICpro</title>
+  <title>myMOSAIC_V3</title>
 
 <!-- ********************************************************************************************* -->
   <link href="bootstrap.min.css" rel="stylesheet">
@@ -50,8 +50,8 @@
       div.form input{width:100%;}
       div.vlc{position:absolute;left:0px;top:4px;width:100%;z-index:1;}
       ul.mediaDescription{position:absolute;left:0px;bottom:0px;padding-left:15px;width:50%;height:auto;z-index:9;list-style-type: none;}
-      ul.audio{position:absolute;right:15px;top:60px;padding:15px;width:50%;height:100%;z-index:9;list-style-type: none;}
-      ul.subtitle{position:absolute;left:-10px;top:30px;padding:15px;width:20%;height:20%;z-index:9;list-style-type: none;}
+      ul.audio{position:absolute;right:0px;top:50px;padding:15px;width:50%;height:100%;z-index:9;list-style-type: none;}
+      ul.subtitle{position:absolute;left:-2px;top:30px;padding:15px;width:20%;height:20%;z-index:9;list-style-type: none;}
       ul#globalInterface{position:fixed;bottom:0px;right:0px;z-index:20;padding-right:5px;}
       ul li{z-index:10; background: #000;display:block;}
 
@@ -213,6 +213,7 @@ $("input").keypress(function(event){
     var url = $(this).val();
     var id = $(this).closest(".vignette").attr("id");
     initPlayer(id, url);
+
   }
 });
 
@@ -225,7 +226,7 @@ $("ul.audio").on("click", ".toggleMute", function(){
 });
 
 $("ul.audio").on("click", ".audioSelect", function(){
-  intervalManager(false,1000);
+  intervalManager(0,1800);
   var id = $(this).closest(".vignette").attr("id");
   var player = getVLC("player"+id);
   var track = $(this).data("track");
@@ -233,8 +234,8 @@ $("ul.audio").on("click", ".audioSelect", function(){
   var description = player.audio.description(track);
   $(this).html('<button type="button" id="option'+track+'" class="audioSelect btn btn-success" data-track="'+track+'">'+description+'</button>');
   setTimeout(function(){
-    intervalManager(true,1000);
-  },1000);
+    intervalManager(1,1200);
+  },1200);
 
 });
 
@@ -253,10 +254,10 @@ $("ul.subtitle").on("click", ".toggleSubtitle", function(){
 
 
 $("ul.subtitle").on("click", ".SelectButton", function(){
-  intervalManager(false,1000);
+  intervalManager(0,1800);
   setTimeout(function(){
-    intervalManager(true,1000);
-  },5500);
+    intervalManager(1,1200);
+  },1200);
 });
 
 $("ul.subtitle").on("click", ".subtitleSelect", function(){
@@ -265,7 +266,7 @@ $("ul.subtitle").on("click", ".subtitleSelect", function(){
   var track = $(this).data("track");
   console.log(track);
   player.subtitle.track = track;
-  intervalManager(true,1000);
+
 });
 
 
@@ -350,15 +351,17 @@ function getUrlParameter(sParam)
 
 var intervalID=null;
 function intervalManager(flag, time) {
-   if(flag)
+   if(flag==1)
      intervalID = setInterval(function(){
        for(var i=1; i<13; i++){
          checkAudio(i);
          checkSubtitle(i);
+         console.log("true",intervalID);
        }
      }, time);
    else
      clearInterval(intervalID);
+     console.log("fasle",intervalID);
 }
 
 var audioDisplay=true;
@@ -395,7 +398,7 @@ $("ul#globalInterface").on("click", "#toggleSubtitleDisplay", function(){
       if (player!=undefined){
         player.subtitle.track = 0;}
     }
-        
+
   } else{
     subtitleDisplay=true;
     $(this).html('<i class="fa fa-toggle-on fa-lg text-success"></i>&nbsp; <i class="fa fa-file-text-o fa-2x text-success"></i>');
@@ -452,8 +455,7 @@ $(document).ready(function() {
     initPlayer(12, url+port);
   }
 
-
-  intervalManager(true, 1500);
+  intervalManager(1, 1400);
 
 });
 
