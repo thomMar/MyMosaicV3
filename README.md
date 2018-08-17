@@ -1,1 +1,3 @@
-# MyMosaïc V3
+# MyMosaic V3
+
+![Screenshot](mosaic.jpg)
