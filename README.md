@@ -1,5 +1,5 @@
 # MyMosaic V3
 
-![Screenshot](mosaic.png)
+![Screenshot](mosaic.jpeg)
 
 Using VLC web Plugin and Firefox (v.49)
